@@ -223,6 +223,271 @@
             line-height: 1.6;
         }
 
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+            border-color: #000;
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .read-more:hover {
+            gap: 15px;
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 30px 0;
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: #666;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-top: 10px;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .partner-logo {
+            height: 100px;
+            background: #f5f5f5;
+            border: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #999;
+            transition: all 0.3s;
+        }
+
+        .partner-logo:hover {
+            border-color: #000;
+            color: #000;
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .certificate-card {
+            text-align: center;
+            padding: 40px;
+            border: 2px solid #e5e5e5;
+        }
+
+        .certificate-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .certificate-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .certificate-org {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .jobs-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .job-card {
+            border: 1px solid #e5e5e5;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .job-card:hover {
+            border-color: #000;
+            transform: translateX(10px);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .job-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .job-type {
+            background: #000;
+            color: white;
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .job-meta-item {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .job-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .job-requirements {
+            margin-bottom: 20px;
+        }
+
+        .job-requirements h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .job-requirements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-requirements li {
+            padding: 8px 0;
+            color: #666;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .job-requirements li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+        }
+
+        .apply-button {
+            padding: 15px 40px;
+            background: #000;
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .apply-button:hover {
+            background: #333;
+        }
+
         .process {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -516,9 +781,10 @@
             <div class="logo">ЭКСПЕРТЫ НИ В ЧЁМ</div>
             <nav class="nav">
                 <a href="#services">Услуги</a>
-                <a href="#team">Команда</a>
-                <a href="#pricing">Тарифы</a>
-                <a href="#contact">Контакты</a>
+                <a href="#blog">Блог</a>
+                <a href="#partners">Партнёры</a>
+                <a href="#faq">FAQ</a>
+                <a href="#careers">Вакансии</a>
             </nav>
         </div>
     </header>
@@ -758,6 +1024,13 @@
                 <h4>Компания</h4>
                 <a href="#team">О нас</a>
                 <a href="#team">Команда</a>
+                <a href="#blog">Блог</a>
+                <a href="#careers">Вакансии</a>
+            </div>
+            <div class="footer-section">
+                <h4>Информация</h4>
+                <a href="#faq">FAQ</a>
+                <a href="#partners">Партнёры</a>
                 <a href="#pricing">Тарифы</a>
                 <a href="#contact">Контакты</a>
             </div>
@@ -808,6 +1081,28 @@
             event.target.reset();
         }
 
+        function showJobModal(position) {
+            const modal = document.getElementById('orderModal');
+            const modalText = document.getElementById('modalText');
+            
+            modalText.textContent = `Спасибо за интерес к позиции "${position}"! Ваш отклик принят. Наш HR-специалист свяжется с вами для обсуждения дальнейших шагов. Приготовьтесь к собеседованию, на котором мы будем делать вид, что оцениваем компетенции.`;
+            
+            modal.style.display = 'flex';
+        }
+
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const allItems = document.querySelectorAll('.faq-item');
+            
+            allItems.forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            faqItem.classList.toggle('active');
+        }
+
         window.onclick = function(event) {
             const modal = document.getElementById('orderModal');
             if (event.target === modal) {
@@ -829,4 +1124,4 @@
         });
     </script>
 </body>
-  </html>
+                        </html>

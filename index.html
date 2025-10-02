@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эксперты ни в чём | Консалтинговое агентство</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #000;
+            color: white;
+            padding: 25px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            background: #000;
+            color: white;
+            padding: 120px 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+            color: #aaa;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: white;
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 100px 40px;
+        }
+
+        .section-dark {
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 80px;
+            font-weight: 300;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+        }
+
+        .service-card {
+            padding: 50px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .service-number {
+            font-size: 3rem;
+            color: #e5e5e5;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: -2px;
+        }
+
+        .stat-item p {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+        }
+
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #f5f5f5;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .team-role {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .team-bio {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 40px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .process-number {
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            background: white;
+            padding: 0 10px;
+            font-size: 2rem;
+            font-weight: 300;
+            color: #999;
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .process-step p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .pricing-card {
+            border: 1px solid #e5e5e5;
+            padding: 60px 40px;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: #000;
+            transform: translateY(-5px);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .price-period {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 0.9rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .pricing-features li {
+            padding: 15px 0;
+            color: #666;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 0.95rem;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .order-button {
+            width: 100%;
+            padding: 18px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .order-button:hover {
+            background: #333;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #000;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 20px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-button:hover {
+            background: #333;
+        }
+
+        .footer {
+            background: #000;
+            color: #666;
+            padding: 80px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #666;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 60px;
+            max-width: 500px;
+            text-align: center;
+            animation: modalSlide 0.3s ease-out;
+        }
+
+        @keyframes modalSlide {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .modal-content p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .close-modal {
+            padding: 15px 40px;
+            background: #000;
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: #333;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services, .team, .process, .pricing {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">ЭКСПЕРТЫ НИ В ЧЁМ</div>
+            <nav class="nav">
+                <a href="#services">Услуги</a>
+                <a href="#team">Команда</a>
+                <a href="#pricing">Тарифы</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Консалтинг<br>с нулевой экспертизой</h1>
+        <p>Предоставляем профессиональные консультации по вопросам, в которых абсолютно не разбираемся</p>
+        <a href="#contact" class="cta-button">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</a>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <p class="section-subtitle">Экспертиза там, где её нет</p>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <h3>Стратегический консалтинг</h3>
+                    <p>Разрабатываем стратегии развития бизнеса на основе интуиции и вдохновения. Гарантируем минимум 300 слайдов презентации с красивыми графиками.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <h3>Финансовый анализ</h3>
+                    <p>Анализируем финансовые показатели методом научного тыка. Наши эксперты используют Excel и калькулятор на телефоне.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <h3>HR-консультации</h3>
+                    <p>Помогаем строить команды мечты, не разбираясь в людях. Наш секрет — задавать правильные вопросы и кивать в ответ.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">04</div>
+                    <h3>IT-трансформация</h3>
+                    <p>Цифровизируем ваш бизнес с помощью модных словечек: блокчейн, AI, облака. Разбираться в технологиях необязательно.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">05</div>
+                    <h3>Маркетинговая стратегия</h3>
+                    <p>Создаём маркетинговые стратегии на основе того, что мы видели у конкурентов. Оригинальность переоценена.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">06</div>
+                    <h3>Бизнес-процессы</h3>
+                    <p>Оптимизируем процессы путём добавления дополнительных совещаний и отчётов. Чем сложнее, тем профессиональнее.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>0</h3>
+                    <p>Лет опыта</p>
+                </div>
+                <div class="stat-item">
+                    <h3>∞</h3>
+                    <p>Уверенности</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Отсутствие знаний</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Слайдов в среднем</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="team">
+        <div class="container">
+            <h2 class="section-title">Наша команда</h2>
+            <p class="section-subtitle">Профессионалы своего дела (какого именно — неизвестно)</p>
+            <div class="team">
+                <div class="team-card">
+                    <div class="team-photo">👔</div>
+                    <h3 class="team-name">Александр Иванов</h3>
+                    <p class="team-role">Главный эксперт по всему</p>
+                    <p class="team-bio">15 лет не работает в консалтинге. Зато умеет говорить уверенно и носить костюм.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">💼</div>
+                    <h3 class="team-name">Мария Петрова</h3>
+                    <p class="team-role">Стратег без стратегии</p>
+                    <p class="team-bio">Специалист по созданию красивых презентаций. Содержание вторично.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">📊</div>
+                    <h3 class="team-name">Дмитрий Смирнов</h3>
+                    <p class="team-role">Аналитик случайных данных</p>
+                    <p class="team-bio">Строит графики, которые выглядят убедительно. Что они означают — загадка.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">🎯</div>
+                    <h3 class="team-name">Елена Козлова</h3>
+                    <p class="team-role">Менеджер проектов</p>
+                    <p class="team-bio">Организует встречи, на которых ничего не решается. Мастер статус-репортов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Как мы работаем</h2>
+            <p class="section-subtitle">Проверенная методология</p>
+            <div class="process">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h3>Знакомство</h3>
+                    <p>Встречаемся, слушаем вас с серьёзным видом и активно киваем. Делаем записи в блокноте.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h3>Анализ</h3>
+                    <p>Гуглим информацию о вашей отрасли. Изучаем что делают конкуренты. Пьём много кофе.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h3>Разработка</h3>
+                    <p>Создаём презентацию на 300 слайдов с модными терминами и красивыми диаграммами.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <h3>Презентация</h3>
+                    <p>Рассказываем очевидные вещи как откровения. Используем умные слова и жестикуляцию.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Тарифы</h2>
+            <p class="section-subtitle">Инвестиции в неопределённость</p>
+            <div class="pricing">
+                <div class="pricing-card">
+                    <h3>Базовый</h3>
+                    <div class="price">₽150 000</div>
+                    <div class="price-period">за проект</div>
+                    <ul class="pricing-features">
+                        <li>1 консультация (2 часа)</li>
+                        <li>Презентация на 50 слайдов</li>
+                        <li>Общие рекомендации</li>
+                        <li>Email поддержка</li>
+                        <li>Сертификат участия</li>
+                    </ul>
+                    <button class="order-button" onclick="showModal('Базовый')">ЗАКАЗАТЬ</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Профессиональный</h3>
+                    <div class="price">₽350 000</div>
+                    <div class="price-period">за проект</div>
+                    <ul class="pricing-features">
+                        <li>3 консультации</li>
+                        <li>Презентация на 200 слайдов</li>
+                        <li>Детальный анализ</li>
+                        <li>Телефонная поддержка</li>
+                        <li>Дорожная карта</li>
+                    </ul>
+                    <button class="order-button" onclick="showModal('Профессиональный')">ЗАКАЗАТЬ</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Корпоративный</h3>
+                    <div class="price">₽750 000</div>
+                    <div class="price-period">за проект</div>
+                    <ul class="pricing-features">
+                        <li>Безлимитные консультации</li>
+                        <li>Презентация на 500+ слайдов</li>
+                        <li>Полный аудит</li>
+                        <li>Персональный менеджер</li>
+                        <li>Стратегия на 5 лет</li>
+                    </ul>
+                    <button class="order-button" onclick="showModal('Корпоративный')">ЗАКАЗАТЬ</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <p class="section-subtitle">Готовы к сотрудничеству</p>
+            <form class="contact-form" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Компания</label>
+                    <input type="text" id="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Интересующая услуга</label>
+                    <select id="service" required>
+                        <option value="">Выберите услугу</option>
+                        <option value="strategy">Стратегический консалтинг</option>
+                        <option value="finance">Финансовый анализ</option>
+                        <option value="hr">HR-консультации</option>
+                        <option value="it">IT-трансформация</option>
+                        <option value="marketing">Маркетинговая стратегия</option>
+                        <option value="process">Бизнес-процессы</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">ОТПРАВИТЬ ЗАЯВКУ</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ЭКСПЕРТЫ НИ В ЧЁМ</h4>
+                <p>Консалтинговое агентство нового поколения</p>
+            </div>
+            <div class="footer-section">
+                <h4>Услуги</h4>
+                <a href="#services">Стратегический консалтинг</a>
+                <a href="#services">Финансовый анализ</a>
+                <a href="#services">HR-консультации</a>
+                <a href="#services">IT-трансформация</a>
+            </div>
+            <div class="footer-section">
+                <h4>Компания</h4>
+                <a href="#team">О нас</a>
+                <a href="#team">Команда</a>
+                <a href="#pricing">Тарифы</a>
+                <a href="#contact">Контакты</a>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>experts@nikitka.pro</p>
+                <p>+7 (495) 123-45-67</p>
+                <p>Москва, Россия</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Эксперты ни в чём. Все права защищены. Вся информация носит развлекательный характер.</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <h2>Заявка принята</h2>
+            <p id="modalText">Ваша заявка на тариф "Базовый" принята. Наш менеджер свяжется с вами в ближайшее время для обсуждения деталей сотрудничества.</p>
+            <button class="close-modal" onclick="closeModal()">ЗАКРЫТЬ</button>
+        </div>
+    </div>
+
+    <script>
+        function showModal(tariff) {
+            const modal = document.getElementById('orderModal');
+            const modalText = document.getElementById('modalText');
+            
+            modalText.textContent = `Ваша заявка на тариф "${tariff}" принята. Наш менеджер свяжется с вами в ближайшее время для обсуждения деталей сотрудничества.`;
+            
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const modal = document.getElementById('orderModal');
+            const modalText = document.getElementById('modalText');
+            
+            modalText.textContent = `Спасибо, ${name}! Ваша заявка принята. Мы свяжемся с вами в ближайшее время, чтобы обсудить как мы можем вам не помочь.`;
+            
+            modal.style.display = 'flex';
+            
+            event.target.reset();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
